@@ -6,6 +6,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const budgetRoutes = require('./routes/budgetRoutes');
 
 
 const app = express();
@@ -19,6 +20,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
 //dashboard routes
 app.use('/api/dashboard', dashboardRoutes);
+//budget routes
+app.use('/api/budgets', budgetRoutes); 
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
