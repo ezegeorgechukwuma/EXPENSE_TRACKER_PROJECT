@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 
-const Navbar = () => {
+const AppNavbar = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -12,22 +13,28 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold text-green-700">💸 Expense Tracker</h1>
-
-      {user && (
-        <div className="flex items-center gap-6">
-          <Link to="/dashboard" className="text-gray-800 hover:text-green-600">Dashboard</Link>
-          <Link to="/add-transaction" className="text-gray-800 hover:text-green-600">Add Transaction</Link>
-          <button onClick={handleLogout} className="text-red-600 font-medium hover:underline">
-            Logout
-          </button>
-        </div>
-      )}
-    </nav>
+    <Navbar bg="light" expand="lg" className="shadow-sm mb-4">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="text-success fw-bold">
+          💸 Expense Tracker
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="main-navbar" />
+        <Navbar.Collapse id="main-navbar" className="justify-content-end">
+          {user && (
+            <Nav className="gap-3">
+              <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+              <Nav.Link as={Link} to="/add-transaction">Add Transaction</Nav.Link>
+              <Button variant="outline-danger" onClick={handleLogout}>
+                Logout
+              </Button>
+            </Nav>
+          )}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
-// This is the Navbar component for the application.
-// It displays the application title and navigation links.
+export default AppNavbar;
+// This component renders the navigation bar for the application.
+// It includes links to the dashboard and add transaction pages, and a logout button.
