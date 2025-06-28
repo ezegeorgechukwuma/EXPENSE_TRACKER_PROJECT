@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import PublicNavbar from '../components/PublicNavbar';
-import LoginModal from './Login/Login'; // ← new file
+import PublicNavbar from '../../components/PublicNavbar';
+import LoginModal from '../Login/Login'; // ← new file
 
 function Landing() {
   const [showLogin, setShowLogin] = useState(false);

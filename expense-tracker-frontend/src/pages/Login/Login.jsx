@@ -2,8 +2,8 @@ import { useState, useContext } from 'react';
 import axios from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
-import './Login.css'; // 👈 Login form CSS
-import PublicNavbar from '../../components/PublicNavbar'; // 👈 Navbar import
+import './Login.css'; // Login form CSS
+import PublicNavbar from '../../components/PublicNavbar'; // Navbar import
 
 function Login() {
   const [email, setEmail] = useState('');

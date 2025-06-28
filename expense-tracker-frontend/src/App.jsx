@@ -6,7 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Navbar from './components/Navbar/Navbar';
 import { Container } from 'react-bootstrap';
-import Landing from './pages/Landing';
+import Landing from './pages/Landing/Landing';
 
 function App() {
   return (
