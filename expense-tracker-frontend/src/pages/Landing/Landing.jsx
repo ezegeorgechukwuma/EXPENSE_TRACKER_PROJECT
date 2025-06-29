@@ -12,8 +12,8 @@ function Landing() {
       
       {/* 👇 Add your landing page sections here */}
       <div className="landing-content">
-        <h1>Welcome to Budgetify 💸</h1>
-        <p>Your smart and personal expense tracker.</p>
+        <h1>Welcome to Budgetify app 💸</h1>
+        <p>Your smart and personal expense tracker dor life</p>
       </div>
     </>
   );
