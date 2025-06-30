@@ -15,7 +15,8 @@ function App() {
       {/* Bootstrap Container for page content */}
       <Container fluid className="py-4 px-4">
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/" element={<Landing />} />   
+          {/* <Route path="/" element={<Navigate to="/login" />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {/* <Route path="/" element={<Landing />} /> */}

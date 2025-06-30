@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
+import PublicNavbar from '../../components/PublicNavbar';
 
 function Register() {
   const [firstname, setFirstName] = useState('');
@@ -21,6 +22,8 @@ function Register() {
   };
 
   return (
+    <>
+    <PublicNavbar />
     <div className="flex justify-center items-center h-screen">
       <form onSubmit={handleRegister} className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-bold mb-6">Register</h2>
@@ -53,6 +56,7 @@ function Register() {
         </button>
       </form>
     </div>
+    </>
   );
 }
 

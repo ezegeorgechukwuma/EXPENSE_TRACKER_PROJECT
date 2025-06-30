@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './PublicNavbar.css';
 
-function PublicNavbar({ onLoginClick }) {
+function PublicNavbar() {
   return (
     <header className="public-navbar">
       <div className="navbar-container">
@@ -16,7 +16,8 @@ function PublicNavbar({ onLoginClick }) {
           <a href="#blog">Blog</a>
         </nav>
         <div className="nav-actions">
-          <button onClick={onLoginClick} className="login-btn">Login</button>
+          <Link to="/login" className="login-btn">Login</Link>
+          {/* <button onClick={onLoginClick} className="login-btn">Login</button> */}
           <Link to="/register" className="cta-btn">Get Started</Link>
         </div>
       </div>
