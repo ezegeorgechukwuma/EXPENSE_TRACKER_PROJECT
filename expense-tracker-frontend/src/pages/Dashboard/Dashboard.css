@@ -1,0 +1,29 @@
+/* Add this CSS to your global styles or Dashboard.css */
+
+/* Make sure the parent container takes full viewport height and centers content */
+body, html, #root {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .app-wrapper {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center;     /* vertically center */
+    padding-top: 2rem;       /* move content a bit down from very top */
+    padding-bottom: 2rem;    /* optional spacing from bottom */
+  }
+  
+  /* Your dashboard container */
+  .dashboard-container {
+    max-width: 900px;
+    width: 90%; /* responsive width */
+    border-radius: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1f2937;
+    padding: 2rem;
+    text-align: center;
+    transform: translateY(-90px);
+  }
+  

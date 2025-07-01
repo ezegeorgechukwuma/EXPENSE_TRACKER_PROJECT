@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
 import PublicNavbar from '../../components/PublicNavbar';
+import './Register.css';
 
 function Register() {
   const [firstname, setFirstName] = useState('');
@@ -24,38 +25,37 @@ function Register() {
   return (
     <>
     <PublicNavbar />
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleRegister} className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-6">Register</h2>
-        <input
-          type="text"
-          placeholder="First Name"
-          className="w-full mb-4 p-2 border"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          type="Text"
-          placeholder="Last Name"
-          className="w-full mb-4 p-2 border"
-          onChange={(e) => setLastName(e.target.value)}
-        />
-         <input
-          type="email"
-          placeholder="Email"
-          className="w-full mb-4 p-2 border"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-         <input
-          type="password"
-          placeholder="Password"
-          className="w-full mb-4 p-2 border"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded">
-          Register
-        </button>
-      </form>
-    </div>
+    <div className="register-container">
+  <form onSubmit={handleRegister} className="register-box">
+    <h2>Register</h2>
+    <input
+      type="text"
+      placeholder="First Name"
+      onChange={(e) => setFirstName(e.target.value)}
+      required
+    />
+    <input
+      type="text"
+      placeholder="Last Name"
+      onChange={(e) => setLastName(e.target.value)}
+      required
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      onChange={(e) => setPassword(e.target.value)}
+      required
+    />
+    <button type="submit">Register</button>
+  </form>
+</div>
+
     </>
   );
 }

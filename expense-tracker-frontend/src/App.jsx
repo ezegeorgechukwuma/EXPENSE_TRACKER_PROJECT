@@ -4,7 +4,8 @@ import Register from './pages/Register/Register';
 import AddTransaction from './pages/Transactions/AddTransaction';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Dashboard from './pages/Dashboard/Dashboard';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/AppNavbar';
+import './components/Navbar/AppNavbar.css'; // Custom CSS for Navbar
 import { Container } from 'react-bootstrap';
 import Landing from './pages/Landing/Landing';
 
@@ -12,14 +13,11 @@ function App() {
   return (
     <Router>
       <Navbar />
-      {/* Bootstrap Container for page content */}
-      <Container fluid className="py-4 px-4">
+      <div className="main-content">
         <Routes>
           <Route path="/" element={<Landing />} />   
-          {/* <Route path="/" element={<Navigate to="/login" />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/" element={<Landing />} /> */}
           <Route
             path="/add-transaction"
             element={
@@ -37,7 +35,7 @@ function App() {
             }
           />
         </Routes>
-      </Container>
+        </div>
     </Router>
   );
 }
