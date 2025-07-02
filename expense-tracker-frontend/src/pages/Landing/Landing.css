@@ -14,11 +14,11 @@
   }
   
   .hero-content {
-    background: rgba(255, 255, 255, 0.8); /* soft transparent */
+    background: rgba(255, 255, 255, 0.8);
     padding: 2rem 2.5rem;
     border-radius: 10px;
     max-width: 600px;
-    width: 100%;              /* takes available space */
+    width: 100%;       
     transform: translateY(-40px);
     box-sizing: border-box;
   }
