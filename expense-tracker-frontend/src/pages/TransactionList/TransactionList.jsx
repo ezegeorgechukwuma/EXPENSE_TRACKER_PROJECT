@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from '../../api/axios';
-import './TransactionList.css';
+import  './TransactionList.css';
 
 function TransactionList() {
   const [transactions, setTransactions] = useState([]);
@@ -16,7 +16,7 @@ function TransactionList() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setTransactions(res.data.transactions || []); // safe access
+        setTransactions(res.data|| []); // safe access
       } catch (err) {
         console.error('❌ Error fetching transactions:', err);
         setError('Failed to load transactions.');

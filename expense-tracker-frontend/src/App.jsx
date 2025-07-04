@@ -6,8 +6,8 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Navbar from './components/Navbar/AppNavbar';
 import './components/Navbar/AppNavbar.css'; // Custom CSS for Navbar
-import { Container } from 'react-bootstrap';
 import Landing from './pages/Landing/Landing';
+import TransactionList from './pages/Transactionlist/TransactionList';
 
 function App() {
   return (
@@ -34,7 +34,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-        </Routes>
+        <Route
+            path="/transaction-list"
+            element={
+              <ProtectedRoute>
+                  <TransactionList />
+              </ProtectedRoute>
+            }
+          />
+          </Routes>
         </div>
     </Router>
   );

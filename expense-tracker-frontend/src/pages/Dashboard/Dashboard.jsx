@@ -1,5 +1,4 @@
 
-
 function Dashboard() {
   // Add global styles to ensure no conflicts
   const globalStyles = `
@@ -55,7 +54,6 @@ function Dashboard() {
           }}>
             What do you want to add today?
           </p>
-          {/* <TransactionList /> */}
         </div>
       </div>
     </>

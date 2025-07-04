@@ -22,6 +22,7 @@ const AppNavbar = () => {
         <div className="navbar-links">
           <Link to="/dashboard" className="nav-link">Dashboard</Link>
           <Link to="/add-transaction" className="nav-link">Add Transaction</Link>
+          <Link to="/transaction-list" className="nav-link">Transactions List</Link>
           <button onClick={handleLogout} className="logout-button">
             Logout
           </button>
