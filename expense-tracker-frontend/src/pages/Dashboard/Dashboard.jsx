@@ -1,6 +1,7 @@
 
 function Dashboard() {
-  // Add global styles to ensure no conflicts
+  // Add global styles to ensure no conflicts FOR the dashboard page
+  // and to set a consistent background color and padding.
   const globalStyles = `
     * {
       margin: 0;
