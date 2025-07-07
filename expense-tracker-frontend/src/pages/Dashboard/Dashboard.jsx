@@ -13,8 +13,7 @@ function Dashboard() {
       margin: 0 !important;
       padding: 0 !important;
     }
-  `;
-
+  `
   return (
     <>
       <style>{globalStyles}</style>

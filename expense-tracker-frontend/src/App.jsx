@@ -14,6 +14,7 @@ function App() {
     <Router>
       <Navbar />
       <div className="main-content">
+      <main style={{ minHeight: '100vh', overflowY: 'auto' }}>
         <Routes>
           <Route path="/" element={<Landing />} />   
           <Route path="/login" element={<Login />} />
@@ -43,6 +44,7 @@ function App() {
             }
           />
           </Routes>
+          </main>
         </div>
     </Router>
   );

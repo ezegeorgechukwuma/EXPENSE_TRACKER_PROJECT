@@ -53,6 +53,11 @@
   color: #fff;
 }
 
+main {
+  padding-top: 70px; /* height of navbar */
+}
+
+
 .main-content {
   padding-top: 70px;
 }

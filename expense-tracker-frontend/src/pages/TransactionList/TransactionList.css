@@ -2,18 +2,20 @@
 
 .transaction-list-container {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 6rem auto 2rem auto; /* centers and pushes down from navbar */
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+    width: 90%; /* make responsive */
+    overflow-y: auto; /* enable vertical scroll inside container if needed */
+  }  
   
   .transaction-list-container h3 {
     font-size: 1.8rem;
     color: #16a34a;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: center;
   }
   
