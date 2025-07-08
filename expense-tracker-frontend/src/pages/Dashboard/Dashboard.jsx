@@ -1,4 +1,4 @@
-
+// import TransactionList from '../TransactionList/TransactionList';
 function Dashboard() {
   // Add global styles to ensure no conflicts FOR the dashboard page
   // and to set a consistent background color and padding.
@@ -18,17 +18,19 @@ function Dashboard() {
     <>
       <style>{globalStyles}</style>
       <div style={{
-        height: 'calc(100vh - 100px)', // leave space for navbar
         width: '100vw',
+        minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center', // Back to center for full screen centering
         backgroundColor: '#f9fafb',
         padding: '1rem',
         boxSizing: 'border-box',
-        position: 'absolute',
-        top: '70px',
-        left: '0'
+        paddingTop: '70px', // Add padding-top for navbar space
+        position: 'fixed', // Use fixed instead of absolute
+        top: '0',
+        left: '0',
+        overflow: 'auto', // Enable scrolling
       }}>
         <div style={{
           maxWidth: '700px',
@@ -37,7 +39,8 @@ function Dashboard() {
           borderRadius: '12px',
           background: 'white',
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05)',
-          textAlign: 'center'
+          textAlign: 'center',
+          // Removed marginTop since we're using center alignment
         }}>
           <h1 style={{
             fontSize: '2.5rem',
@@ -55,6 +58,9 @@ function Dashboard() {
             What do you want to add today?
           </p>
         </div>
+        
+        {/* Your TransactionList component should go here */}
+        {/* <TransactionList /> */}
       </div>
     </>
   );

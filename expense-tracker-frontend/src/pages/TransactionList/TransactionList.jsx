@@ -28,27 +28,43 @@ function TransactionList() {
     fetchTransactions();
   }, []);
 
-  if (loading) return <p className="loading">Loading transactions...</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (transactions.length === 0) return <p className="empty">No transactions found.</p>;
+  if (loading) return (
+    <div className="transaction-list-wrapper">
+      <p className="loading">Loading transactions...</p>
+    </div>
+  );
+  
+  if (error) return (
+    <div className="transaction-list-wrapper">
+      <p className="error">{error}</p>
+    </div>
+  );
+  
+  if (transactions.length === 0) return (
+    <div className="transaction-list-wrapper">
+      <p className="empty">No transactions found.</p>
+    </div>
+  );
 
   return (
-    <div className="transaction-list-container">
-      <h3>Recent Transactions</h3>
-      <ul className="transaction-list">
-        {transactions.map((tx) => (
-          <li key={tx._id} className={`transaction-item ${tx.type}`}>
-            <div className="left">
-              <strong>{tx.category}</strong>
-              <p>{tx.description}</p>
-              <small>{new Date(tx.date).toLocaleDateString()}</small>
-            </div>
-            <div className="right">
-              <span>{tx.type === 'income' ? '+' : '-'}₦{tx.amount}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className="transaction-list-wrapper">
+      <div className="transaction-list-container">
+        <h3>Recent Transactions</h3>
+        <ul className="transaction-list">
+          {transactions.map((tx) => (
+            <li key={tx._id} className={`transaction-item ${tx.type}`}>
+              <div className="left">
+                <strong>{tx.category}</strong>
+                <p>{tx.description}</p>
+                <small>{new Date(tx.date).toLocaleDateString()}</small>
+              </div>
+              <div className="right">
+                <span>{tx.type === 'income' ? '+' : '-'}₦{tx.amount}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

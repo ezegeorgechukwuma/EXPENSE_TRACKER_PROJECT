@@ -8,9 +8,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   z-index: 1000;
   display: flex;
-  justify-content: flex-start; /* Changed from space-between to flex-start */
+  justify-content: flex-start;
   align-items: center;
-  gap: 25rem; /* Added gap to create space between brand and links */
+  gap: 25rem;
+  height: 70px; /* Define explicit height */
 }
 
 .navbar-brand {
@@ -24,7 +25,6 @@
   display: flex;
   gap: 3rem;
   align-items: center;
-  /* Now the links will appear right after the brand with the gap */
 }
 
 .nav-link {
@@ -53,11 +53,14 @@
   color: #fff;
 }
 
-main {
-  padding-top: 70px; /* height of navbar */
+/* Remove conflicting styles */
+body, html {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto; /* Allow vertical scroll */
 }
 
-
+/* General layout for pages */
 .main-content {
   padding-top: 70px;
+  min-height: calc(100vh - 70px);
 }
