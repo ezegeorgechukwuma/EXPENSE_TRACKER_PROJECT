@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from '../../api/axios';
 import  './TransactionList.css';
 
+// This component fetches and displays a list of transactions
+
 function TransactionList() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
