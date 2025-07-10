@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Navbar from './components/Navbar/AppNavbar';
 import './components/Navbar/AppNavbar.css'; // Custom CSS for Navbar
 import Landing from './pages/Landing/Landing';
-import TransactionList from './pages/Transactionlist/TransactionList';
+import TransactionList from './pages/TransactionList/TransactionList';
 
 function App() {
   return (

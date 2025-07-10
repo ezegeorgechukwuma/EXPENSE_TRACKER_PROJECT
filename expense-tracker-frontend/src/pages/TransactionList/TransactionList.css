@@ -182,3 +182,38 @@ body, html {
         font-size: 1.1rem;
     }
 }
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+  
+  .controls select {
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .transaction-item input[type="text"],
+  .transaction-item input[type="number"],
+  .transaction-item input[type="date"] {
+    width: 100px;
+    margin: 0 0.2rem;
+    padding: 0.2rem;
+    font-size: 0.9rem;
+  }
+  .transaction-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.3rem;
+    font-size: 1rem;
+  }
+  .transaction-item button:hover {
+    opacity: 0.7;
+  }
+.transaction-item button.delete {
+    color: #dc2626;
+  }  
