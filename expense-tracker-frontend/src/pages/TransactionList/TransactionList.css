@@ -217,3 +217,64 @@ body, html {
 .transaction-item button.delete {
     color: #dc2626;
   }  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .pagination button {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .pagination button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .pagination button:hover:not(:disabled) {
+    background-color: #15803d;
+  }
+.pagination span {
+    font-size: 1rem;
+    color: #111827;
+  }  
+  .summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+  }
+  
+  .summary-item {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 8px;
+    flex: 1;
+    margin: 0 0.5rem;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  }
+  
+  .summary-item.income p {
+    color: #22c55e;
+    font-weight: bold;
+  }
+  
+  .summary-item.expense p {
+    color: #ef4444;
+    font-weight: bold;
+  }
+  
+  .summary-item.balance p {
+    color: #0f172a;
+    font-weight: bold;
+  }
+  

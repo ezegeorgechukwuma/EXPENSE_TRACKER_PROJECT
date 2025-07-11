@@ -10,8 +10,12 @@ function TransactionList() {
   const [filterType, setFilterType] = useState('all');
   const [sortOrder, setSortOrder] = useState('newest'); // newest or oldest
 
-  const [editingId, setEditingId] = useState(null);
-  const [editedTx, setEditedTx] = useState({});
+  const [editingId, setEditingId] = useState(null);  
+  const [editedTx, setEditedTx] = useState({});   // // State to hold edited transaction data
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 2; // Number of transactions per page
+
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -108,11 +112,28 @@ const handleEditSave = async (id) => {
   if (error) return <p className="error">{error}</p>;
   if (filtered.length === 0) return <p className="empty">No transactions found.</p>;
 
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginated = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+  const totalIncome = transactions
+  .filter(tx => tx.type === 'income')
+  .reduce((sum, tx) => sum + Number(tx.amount), 0);
+
+const totalExpense = transactions
+  .filter(tx => tx.type === 'expense')
+  .reduce((sum, tx) => sum + Number(tx.amount), 0);
+
+const balance = totalIncome - totalExpense;
+
+
+
   return (
     <div className="transaction-list-wrapper">
       <div className="transaction-list-container">
         <h3>Recent Transactions</h3>
-
+        
         {/* Filter & sort controls */}
         <div className="controls">
           <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
@@ -126,8 +147,23 @@ const handleEditSave = async (id) => {
           </select>
         </div>
 
+        <div className="summary">
+          <div className="summary-item income">
+             <h4>Total Income</h4>
+             <p>₦{totalIncome}</p>
+         </div>
+       <div className="summary-item expense">
+           <h4>Total Expenses</h4>
+           <p>₦{totalExpense}</p>
+      </div>
+       <div className="summary-item balance">
+          <h4>Balance</h4>
+          <p>₦{balance}</p>
+      </div>
+      </div>
+
         <ul className="transaction-list">
-          {filtered.map((tx) => (
+          {paginated.map((tx) => (
             <li key={tx._id} className={`transaction-item ${tx.type}`}>
               {editingId === tx._id ? (
                 <>
@@ -175,6 +211,21 @@ const handleEditSave = async (id) => {
             </li>
           ))}
         </ul>
+        <div className="pagination">
+          <button 
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+           >
+             Previous
+          </button>
+          <span>Page {currentPage} of {totalPages}</span>
+         <button 
+         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+         disabled={currentPage === totalPages}
+          >
+           Next
+        </button>
+        </div>
       </div>
     </div>
   );
