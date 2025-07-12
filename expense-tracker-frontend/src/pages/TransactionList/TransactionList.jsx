@@ -100,13 +100,30 @@ const handleEditSave = async (id) => {
 
   // Filter & sort
   const filtered = transactions
-    .filter(tx => filterType === 'all' || tx.type === filterType)
-    .sort((a, b) => {
-      if (sortOrder === 'newest') {
-        return new Date(b.date) - new Date(a.date);
+  .filter(tx => filterType === 'all' || tx.type === filterType)
+  .sort((a, b) => {
+    if (sortOrder === 'newest') {
+      // For newest first: compare dates, if equal compare by creation time
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      
+      if (dateA.getTime() === dateB.getTime()) {
+        // If dates are the same, sort by _id or createdAt (newer first)
+        return a._id > b._id ? -1 : 1;
       }
-      return new Date(a.date) - new Date(b.date);
-    });
+      return dateB - dateA; // Newer dates first
+    }
+    // For oldest first
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    
+    if (dateA.getTime() === dateB.getTime()) {
+      // If dates are the same, sort by _id or createdAt (older first)
+      return a._id < b._id ? -1 : 1;
+    }
+    return dateA - dateB; // Older dates first
+  });
+
 
   if (loading) return <p className="loading">Loading transactions...</p>;
   if (error) return <p className="error">{error}</p>;
