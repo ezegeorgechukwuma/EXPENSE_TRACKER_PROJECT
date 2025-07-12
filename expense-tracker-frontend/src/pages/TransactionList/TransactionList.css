@@ -1,280 +1,480 @@
-/* TransactionList.css */
+/* TransactionList.css - ISOLATED & OVERRIDDEN VERSION */
 
-/* Global styles to prevent inheritance - same as Dashboard */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* FORCE ISOLATION - Reset all inherited styles */
+.transaction-list-wrapper,
+.transaction-list-wrapper * {
+    all: unset !important;
+    box-sizing: border-box !important;
 }
 
-body, html {
+/* FORCE BASE STYLES - Override everything */
+.transaction-list-wrapper {
+    /* Layout */
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100vw !important;
+    min-height: 100vh !important;
+    
+    /* Positioning - FORCE from top */
+    position: absolute !important;
+    top: 70px !important; /* Start below navbar */
+    left: 0 !important;
+    
+    /* Styling */
     background-color: #f9fafb !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    
+    /* Typography reset */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+    
+    /* Overflow control */
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    
+    /* Z-index */
+    z-index: 100 !important;
+}
+
+/* FORCE CONTAINER STYLES */
+.transaction-list-container {
+    /* Layout */
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    
+    /* Positioning - FORCE to stay put */
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 auto !important;
+    
+    /* Styling */
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    padding: 2rem !important;
+    
+    /* Typography */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    
+    /* Growth control */
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+/* FORCE HEADING STYLES */
+.transaction-list-container h3 {
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Typography */
+    font-size: 1.8rem !important;
+    font-weight: 600 !important;
+    color: #16a34a !important;
+    text-align: center !important;
+    letter-spacing: 0.05em !important;
+    
+    /* Spacing */
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0 !important;
+    
+    /* Positioning */
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+}
+
+/* FORCE CONTROLS STYLES */
+.controls {
+    /* Layout */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    
+    /* Spacing */
+    margin: 0 0 1rem 0 !important;
+    padding: 0 !important;
+    
+    /* Positioning */
+    position: static !important;
+    width: 100% !important;
+}
+
+.controls select {
+    /* Reset */
+    all: unset !important;
+    display: inline-block !important;
+    
+    /* Styling */
+    padding: 0.4rem !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    background-color: white !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+}
+
+/* FORCE SUMMARY STYLES */
+.summary {
+    /* Layout */
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+    
+    /* Spacing */
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0 !important;
+    
+    /* Positioning */
+    position: static !important;
+    width: 100% !important;
+}
+
+.summary-item {
+    /* Layout */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex: 1 !important;
+    
+    /* Styling */
+    background: #f9fafb !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05) !important;
+    
+    /* Typography */
+    text-align: center !important;
+}
+
+.summary-item h4 {
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Typography */
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.summary-item p {
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Typography */
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+}
+
+.summary-item.income p {
+    color: #22c55e !important;
+}
+
+.summary-item.expense p {
+    color: #ef4444 !important;
+}
+
+.summary-item.balance p {
+    color: #0f172a !important;
+}
+
+/* FORCE TRANSACTION LIST STYLES */
+.transaction-list {
+    /* Layout */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    
+    /* Reset */
+    list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
-}
-
-/* Container wrapper to center the transaction list */
-.transaction-list-wrapper {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: #f9fafb;
-    padding: 1rem;
-    padding-top: 90px; /* Account for navbar */
-    box-sizing: border-box;
-    margin-top: 70px; /* Ensure space for fixed navbar */
-    margin-bottom: auto;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.transaction-list-container {
-    max-width: 800px;
-    width: 100%;
-    padding: 2rem;
-    padding-top: 1rem; 
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 400px;
-    margin: 0; /* Remove margin since wrapper handles centering */
-}
-
-.transaction-list-container h3 {
-    font-size: 1.8rem;
-    color: #16a34a;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-}
-
-.transaction-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem; /* consistent spacing between items */
+    
+    /* Positioning */
+    position: static !important;
+    width: 100% !important;
 }
 
 .transaction-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 1.5rem;
-    border-left: 4px solid transparent;
-    border-radius: 8px;
-    background-color: #f9fafb;
-    transition: all 0.2s ease;
-    border: 1px solid #e5e7eb;
+    /* Layout */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    
+    /* Styling */
+    padding: 1.25rem 1.5rem !important;
+    border-left: 4px solid transparent !important;
+    border-radius: 8px !important;
+    background-color: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    transition: all 0.2s ease !important;
+    
+    /* Positioning */
+    position: static !important;
+    width: 100% !important;
 }
 
 .transaction-item:hover {
-    transform: translateY(-2px);
-    background-color: #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px) !important;
+    background-color: #f3f4f6 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .transaction-item.income {
-    border-left-color: #22c55e;
-    background-color: #f0fdf4;
+    border-left-color: #22c55e !important;
+    background-color: #f0fdf4 !important;
 }
 
 .transaction-item.expense {
-    border-left-color: #ef4444;
-    background-color: #fef2f2;
+    border-left-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
 }
 
 .transaction-item .left {
-    text-align: left;
-    flex: 1;
+    /* Layout */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    flex: 1 !important;
+    
+    /* Spacing */
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    /* Typography */
+    text-align: left !important;
 }
 
 .transaction-item .left strong {
-    display: block;
-    font-size: 1.1rem;
-    color: #111827;
-    margin-bottom: 0.25rem;
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Typography */
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+    color: #111827 !important;
+    margin: 0 0 0.25rem 0 !important;
 }
 
 .transaction-item .left p {
-    margin: 0.25rem 0;
-    font-size: 0.95rem;
-    color: #374151;
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Typography */
+    font-size: 0.95rem !important;
+    color: #374151 !important;
+    margin: 0.25rem 0 !important;
 }
 
 .transaction-item .left small {
-    font-size: 0.85rem;
-    color: #9ca3af;
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Typography */
+    font-size: 0.85rem !important;
+    color: #9ca3af !important;
+    margin: 0 !important;
 }
 
 .transaction-item .right {
-    text-align: right;
-    flex-shrink: 0;
+    /* Layout */
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    
+    /* Positioning */
+    flex-shrink: 0 !important;
+    text-align: right !important;
 }
 
 .transaction-item .right span {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: #1f2937;
+    /* Reset */
+    all: unset !important;
+    display: inline-block !important;
+    
+    /* Typography */
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+    color: #1f2937 !important;
 }
 
 .transaction-item.income .right span {
-    color: #16a34a;
+    color: #16a34a !important;
 }
 
 .transaction-item.expense .right span {
-    color: #dc2626;
+    color: #dc2626 !important;
 }
 
+/* FORCE BUTTON STYLES */
+.transaction-item button {
+    /* Reset */
+    all: unset !important;
+    display: inline-block !important;
+    
+    /* Styling */
+    cursor: pointer !important;
+    font-size: 1rem !important;
+    padding: 0.2rem !important;
+    margin: 0 0.1rem !important;
+    border-radius: 4px !important;
+    transition: opacity 0.2s !important;
+}
+
+.transaction-item button:hover {
+    opacity: 0.7 !important;
+}
+
+.transaction-item button.delete-btn {
+    color: #dc2626 !important;
+}
+
+/* FORCE INPUT STYLES */
+.transaction-item input[type="text"],
+.transaction-item input[type="number"],
+.transaction-item input[type="date"] {
+    /* Reset */
+    all: unset !important;
+    display: inline-block !important;
+    
+    /* Styling */
+    width: 100px !important;
+    margin: 0 0.2rem !important;
+    padding: 0.2rem !important;
+    font-size: 0.9rem !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    background-color: white !important;
+    color: #333 !important;
+}
+
+/* FORCE PAGINATION STYLES */
+.pagination {
+    /* Layout */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    
+    /* Spacing */
+    margin: 1rem 0 0 0 !important;
+    padding: 1rem 0 !important;
+    
+    /* Positioning */
+    position: static !important;
+    width: 100% !important;
+}
+
+.pagination button {
+    /* Reset */
+    all: unset !important;
+    display: inline-block !important;
+    
+    /* Styling */
+    background-color: #16a34a !important;
+    color: white !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background 0.2s !important;
+    font-size: 14px !important;
+}
+
+.pagination button:disabled {
+    background-color: #9ca3af !important;
+    cursor: not-allowed !important;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #15803d !important;
+}
+
+.pagination span {
+    /* Reset */
+    all: unset !important;
+    display: inline-block !important;
+    
+    /* Typography */
+    font-size: 1rem !important;
+    color: #111827 !important;
+}
+
+/* FORCE LOADING/ERROR/EMPTY STATES */
 .loading,
 .error,
 .empty {
-    text-align: center;
-    padding: 3rem 2rem;
-    font-size: 1rem;
-    color: #6b7280;
+    /* Reset */
+    all: unset !important;
+    display: block !important;
+    
+    /* Styling */
+    text-align: center !important;
+    padding: 3rem 2rem !important;
+    font-size: 1rem !important;
+    color: #6b7280 !important;
+    width: 100% !important;
 }
 
 .empty {
-    background-color: #f9fafb;
-    border-radius: 8px;
-    border: 2px dashed #d1d5db;
+    background-color: #f9fafb !important;
+    border-radius: 8px !important;
+    border: 2px dashed #d1d5db !important;
 }
 
 .error {
-    color: #dc2626;
-    background-color: #fef2f2;
-    border-radius: 8px;
-    border: 1px solid #fecaca;
+    color: #dc2626 !important;
+    background-color: #fef2f2 !important;
+    border-radius: 8px !important;
+    border: 1px solid #fecaca !important;
 }
 
 .loading {
-    color: #16a34a;
+    color: #16a34a !important;
 }
 
-/* Responsive design */
+/* RESPONSIVE OVERRIDES */
 @media (max-width: 768px) {
     .transaction-list-wrapper {
-        padding: 1rem 0.5rem;
-        padding-top: 90px;
+        padding: 10px !important;
     }
     
     .transaction-list-container {
-        width: 100%;
-        padding: 1.5rem;
+        padding: 1rem !important;
     }
     
     .transaction-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.5rem !important;
     }
     
     .transaction-item .right {
-        align-self: flex-end;
+        align-self: flex-end !important;
     }
     
-    .transaction-item .right span {
-        font-size: 1.1rem;
+    .summary {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    
+    .summary-item {
+        margin: 0 !important;
     }
 }
-
-.controls {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    justify-content: center;
-  }
-  
-  .controls select {
-    padding: 0.4rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .transaction-item input[type="text"],
-  .transaction-item input[type="number"],
-  .transaction-item input[type="date"] {
-    width: 100px;
-    margin: 0 0.2rem;
-    padding: 0.2rem;
-    font-size: 0.9rem;
-  }
-  .transaction-item button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 0.3rem;
-    font-size: 1rem;
-  }
-  .transaction-item button:hover {
-    opacity: 0.7;
-  }
-.transaction-item button.delete {
-    color: #dc2626;
-  }  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .pagination button {
-    background-color: #16a34a;
-    color: white;
-    border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .pagination button:disabled {
-    background-color: #9ca3af;
-    cursor: not-allowed;
-  }
-  
-  .pagination button:hover:not(:disabled) {
-    background-color: #15803d;
-  }
-.pagination span {
-    font-size: 1rem;
-    color: #111827;
-  }  
-  .summary {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1.5rem;
-  }
-  
-  .summary-item {
-    background: #f9fafb;
-    padding: 1rem;
-    border-radius: 8px;
-    flex: 1;
-    margin: 0 0.5rem;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0,0,0,0.05);
-  }
-  
-  .summary-item.income p {
-    color: #22c55e;
-    font-weight: bold;
-  }
-  
-  .summary-item.expense p {
-    color: #ef4444;
-    font-weight: bold;
-  }
-  
-  .summary-item.balance p {
-    color: #0f172a;
-    font-weight: bold;
-  }
-  

@@ -14,7 +14,7 @@ function TransactionList() {
   const [editedTx, setEditedTx] = useState({});   // // State to hold edited transaction data
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2; // Number of transactions per page
+  const itemsPerPage = 5; // Number of transactions per page
 
 
   useEffect(() => {
