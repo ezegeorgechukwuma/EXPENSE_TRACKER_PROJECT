@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from '../../api/axios';
 import './TransactionList.css';
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 function TransactionList() {
   const [transactions, setTransactions] = useState([]);
@@ -34,6 +38,27 @@ function TransactionList() {
     };
     fetchTransactions();
   }, []);
+
+  const handleExport = () => {
+    if (!transactions || transactions.length === 0) return;
+  
+    const headers = Object.keys(transactions[0]);
+    const csvRows = [
+      headers.join(','),  // header row
+      ...transactions.map(tx => headers.map(field => JSON.stringify(tx[field] ?? '')).join(','))
+    ];
+  
+    const csv = csvRows.join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'transactions.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
 
   // Delete transaction
   const handleDelete = async (id) => {
@@ -142,7 +167,31 @@ const totalExpense = transactions
   .filter(tx => tx.type === 'expense')
   .reduce((sum, tx) => sum + Number(tx.amount), 0);
 
+  const total = totalIncome + totalExpense;
+
+  // Calculate percentages
+const incomePercentage = total ? ((totalIncome / total) * 100).toFixed(1) : 0;
+const expensePercentage = total ? ((totalExpense / total) * 100).toFixed(1) : 0;
+
 const balance = totalIncome - totalExpense;
+
+
+const chartData = {
+  labels: [
+    `Income (${incomePercentage}%)`,
+    `Expense (${expensePercentage}%)`
+  ],
+  datasets: [
+    {
+      label: 'Amount',
+      data: [totalIncome, totalExpense],
+      backgroundColor: ['#22c55e', '#ef4444'],
+      borderColor: ['#16a34a', '#dc2626'],
+      borderWidth: 1,
+    },
+  ],
+};
+
 
 
 
@@ -150,6 +199,7 @@ const balance = totalIncome - totalExpense;
     <div className="transaction-list-wrapper">
       <div className="transaction-list-container">
         <h3>Recent Transactions</h3>
+        <button className="export-button" onClick={handleExport}>Export to CSV</button>
         
         {/* Filter & sort controls */}
         <div className="controls">
@@ -178,6 +228,17 @@ const balance = totalIncome - totalExpense;
           <p>₦{balance}</p>
       </div>
       </div>
+      <div className="summary">
+         {/* <h4>Summary</h4>
+         <p>Total Income: ₦{totalIncome}</p>
+         <p>Total Expense: ₦{totalExpense}</p> */}
+        <div className="chart-container">
+        <div style={{ maxWidth: '300px' , margin: '0 auto' }}>
+             <Pie data={chartData} />
+        </div>
+        </div>
+       </div>
+
 
         <ul className="transaction-list">
           {paginated.map((tx) => (

@@ -478,3 +478,35 @@
         margin: 0 !important;
     }
 }
+
+.summary {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .summary h4 {
+    font-size: 1.4rem;
+    color: #16a34a;
+    margin-bottom: 0.5rem;
+  }
+  
+  .chart-container {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .export-button {
+    background-color: #16a34a !important;
+    color: #fff !important;
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 1rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .export-button:hover {
+    background-color: #15803d;
+  }
+  
