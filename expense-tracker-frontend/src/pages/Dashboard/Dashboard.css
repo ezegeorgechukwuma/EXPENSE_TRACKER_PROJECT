@@ -1,1 +1,138 @@
-/* empty space, might be used later */
+/* SIMPLE SOLUTION - Just push everything below the navbar */
+
+/* Force everything below navbar */
+.dashboard-container {
+    width: 100% !important;
+    min-height: 100vh !important;
+    background-color: #f9fafb !important;
+    padding: 0 !important;
+    padding-left: 10rem;
+    margin: 0 !important;
+    margin-top: 350px !important; /* Push everything down below navbar */
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Card styling */
+.dashboard-card {
+    max-width: 700px !important;
+    width: 190% !important;
+    margin: 0 auto !important;
+    padding: 2rem !important;
+    padding-left: 10rem;
+    background: white !important;
+    border-radius: 12px !important;
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important; */
+    text-align: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Title styling */
+.dashboard-title {
+    font-size: 2.5rem !important;
+    color: #16a34a !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+    text-align: center !important;
+    font-family: Arial, sans-serif !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* Subtitle styling */
+.dashboard-subtitle {
+    font-size: 1.1rem !important;
+    color: #555 !important;
+    margin-bottom: 2rem !important;
+    display: block !important;
+    text-align: center !important;
+    font-family: Arial, sans-serif !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* Chart container */
+.chart-container {
+    width: 300px !important;
+    height: 300px !important;
+    margin: 2rem auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* Category chart */
+.category-chart-container {
+    width: 100% !important;
+    margin-top: 2rem !important;
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    border: 1px solid #e9ecef !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* Force visibility on all text */
+.dashboard-container h1,
+.dashboard-container p,
+.dashboard-container div,
+.dashboard-container span {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Specific overrides for the exact elements */
+.dashboard-container .dashboard-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #16a34a !important;
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+.dashboard-container .dashboard-subtitle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #555 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .dashboard-container {
+        margin-top: 250px !important;
+    }
+    
+    .dashboard-card {
+        width: 95% !important;
+        padding: 1.5rem !important;
+    }
+    
+    .dashboard-title {
+        font-size: 2rem !important;
+    }
+    
+    .chart-container {
+        width: 250px !important;
+        height: 250px !important;
+    }
+}

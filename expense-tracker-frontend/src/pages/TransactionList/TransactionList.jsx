@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from '../../api/axios';
 import './TransactionList.css';
-import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 
 function TransactionList() {
@@ -18,7 +16,7 @@ function TransactionList() {
   const [editedTx, setEditedTx] = useState({});   // // State to hold edited transaction data
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Number of transactions per page
+  const itemsPerPage = 4; // Number of transactions per page
 
 
   useEffect(() => {
@@ -87,7 +85,6 @@ function TransactionList() {
   };
 
   // Save edits
- // Save edits - Final fix
 const handleEditSave = async (id) => {
   try {
     const token = localStorage.getItem('token');
@@ -167,39 +164,12 @@ const totalExpense = transactions
   .filter(tx => tx.type === 'expense')
   .reduce((sum, tx) => sum + Number(tx.amount), 0);
 
-  const total = totalIncome + totalExpense;
-
-  // Calculate percentages
-const incomePercentage = total ? ((totalIncome / total) * 100).toFixed(1) : 0;
-const expensePercentage = total ? ((totalExpense / total) * 100).toFixed(1) : 0;
-
 const balance = totalIncome - totalExpense;
-
-
-const chartData = {
-  labels: [
-    `Income (${incomePercentage}%)`,
-    `Expense (${expensePercentage}%)`
-  ],
-  datasets: [
-    {
-      label: 'Amount',
-      data: [totalIncome, totalExpense],
-      backgroundColor: ['#22c55e', '#ef4444'],
-      borderColor: ['#16a34a', '#dc2626'],
-      borderWidth: 1,
-    },
-  ],
-};
-
-
-
 
   return (
     <div className="transaction-list-wrapper">
       <div className="transaction-list-container">
         <h3>Recent Transactions</h3>
-        <button className="export-button" onClick={handleExport}>Export to CSV</button>
         
         {/* Filter & sort controls */}
         <div className="controls">
@@ -212,8 +182,11 @@ const chartData = {
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>
+          <button className="export-button" onClick={handleExport}>Export to CSV</button>
         </div>
 
+
+     {/* // Summary section */}
         <div className="summary">
           <div className="summary-item income">
              <h4>Total Income</h4>
@@ -228,16 +201,6 @@ const chartData = {
           <p>₦{balance}</p>
       </div>
       </div>
-      <div className="summary">
-         {/* <h4>Summary</h4>
-         <p>Total Income: ₦{totalIncome}</p>
-         <p>Total Expense: ₦{totalExpense}</p> */}
-        <div className="chart-container">
-        <div style={{ maxWidth: '300px' , margin: '0 auto' }}>
-             <Pie data={chartData} />
-        </div>
-        </div>
-       </div>
 
 
         <ul className="transaction-list">

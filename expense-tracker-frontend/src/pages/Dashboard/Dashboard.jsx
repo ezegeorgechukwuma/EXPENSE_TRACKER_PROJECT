@@ -1,68 +1,71 @@
-// import TransactionList from '../TransactionList/TransactionList';
+import { useEffect, useState } from 'react';
+import axios from '../../api/axios';
+import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import CategoryChart from '../../components/Charts/CategoryChart'; // adjust path if needed
+import './Dashboard.css';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 function Dashboard() {
-  // Add global styles to ensure no conflicts FOR the dashboard page
-  // and to set a consistent background color and padding.
-  const globalStyles = `
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      background-color: #f9fafb !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-  `
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const res = await axios.get('/transactions', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setTransactions(res.data || []);
+      } catch (err) {
+        console.error('Error fetching transactions:', err);
+      }
+    };
+    fetchTransactions();
+  }, []);
+
+  const totalIncome = transactions
+    .filter(tx => tx.type === 'income')
+    .reduce((sum, tx) => sum + tx.amount, 0);
+
+  const totalExpense = transactions
+    .filter(tx => tx.type === 'expense')
+    .reduce((sum, tx) => sum + tx.amount, 0);
+
+  const total = totalIncome + totalExpense || 1; // avoid divide by zero
+  const incomePercentage = ((totalIncome / total) * 100).toFixed(0);
+  const expensePercentage = ((totalExpense / total) * 100).toFixed(0);
+
+  const chartData = {
+    labels: [`Income (${incomePercentage}%)`, `Expense (${expensePercentage}%)`],
+    datasets: [
+      {
+        data: [totalIncome, totalExpense],
+        backgroundColor: ['#22c55e', '#ef4444'],
+        borderColor: ['#16a34a', '#dc2626'],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
-    <>
-      <style>{globalStyles}</style>
-      <div style={{
-        width: '100vw',
-        minHeight: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center', // Back to center for full screen centering
-        backgroundColor: '#f9fafb',
-        padding: '1rem',
-        boxSizing: 'border-box',
-        paddingTop: '70px', // Add padding-top for navbar space
-        position: 'fixed', // Use fixed instead of absolute
-        top: '0',
-        left: '0',
-        overflow: 'auto', // Enable scrolling
-      }}>
-        <div style={{
-          maxWidth: '700px',
-          width: '100%',
-          padding: '2rem',
-          borderRadius: '12px',
-          background: 'white',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.05)',
-          textAlign: 'center',
-          // Removed marginTop since we're using center alignment
-        }}>
-          <h1 style={{
-            fontSize: '2.5rem',
-            color: '#16a34a',
-            marginBottom: '1rem',
-            margin: '0 0 1rem 0' // ensure proper centering
-          }}>
-            Welcome to your Dashboard
-          </h1>
-          <p style={{
-            fontSize: '1.1rem',
-            color: '#555',
-            margin: '0' // remove default margins
-          }}>
-            What do you want to add today?
-          </p>
-        </div>
+    <div className="dashboard-container">
+      <div className="dashboard-card">
+        <h1 className="dashboard-title">Welcome to your Dashboard</h1>
+        <p className="dashboard-subtitle">What do you want to add today?</p>
         
-        {/* Your TransactionList component should go here */}
-        {/* <TransactionList /> */}
+        {/* Main Pie Chart */}
+        <div className="chart-container">
+          <Doughnut data={chartData} options={{ plugins: { legend: { position: 'bottom' } } }} />
+        </div>
+
+        {/* Category-based chart below */}
+        <div className="category-chart-container">
+          <CategoryChart transactions={transactions} />
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
