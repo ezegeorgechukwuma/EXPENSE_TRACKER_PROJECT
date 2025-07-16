@@ -104,7 +104,7 @@ Clear separation of frontend (expense-tracker-frontend) and backend (expense-tra
 
 | Dashboard | Dashboard (Charts) | Landing Page | Login | Register | Transaction List | Add Transaction |
 | --------- | ----------------- | ------------ | ----- | -------- | ---------------- | --------------- |
-| ![Dashboard](public/screenshots/dashboard.png) | ![Dashboard Charts](public/screenshots/dashboard_2.png) | ![Landing Page](public/screenshots/landing_page.png) | ![Login](public/screenshots/Login.png) | ![Register](public/screenshots/Register.png) | ![Transaction List](public/screenshots/Transactionlist_2.png) | ![Add Transaction](public/screenshots/Add_transactions.png) |
+| ![Dashboard](public/screenshots/dashboard.PNG) | ![Landing Page](public/screenshots/landing_page.PNG) | ![Login](public/screenshots/Login.PNG) | ![Register](public/screenshots/Register.PNG) | ![Transaction List](public/screenshots/Transactionlist_2.PNG) | ![Add Transaction](public/screenshots/Add_transactions.) |
 		
 
 (Replace links with real screenshots)
