@@ -42,10 +42,7 @@ This project taught me real debugging, testing APIs, and aligning backend respon
 
 | Dashboard | Charts | Transaction List | Add Transaction | Login | Register | Landing Page |
 | --------- | ----- | ---------------- | --------------- | ----- | -------- | ------------ |
-| ![Dashboard](expense-tracker-frontend/public/screenshots/dashboard.png) | ![Charts](public/screenshots/dashboard_2.png) | ![Transactions](public/screenshots/Transactionlist_2.png) | ![Add Transaction](public/screenshots/Add_transactions.png) | ![Login](public/screenshots/Login.png) | ![Register](public/screenshots/Register.png) | ![Landing](public/screenshots/landing_page.png) |
-
-Make sure your screenshots are placed under `public/screenshots/`.
-
+| ![Dashboard](expense-tracker-frontend/public/screenshots/Dashboard.png) | ![Charts](expense-tracker-frontend/public/screenshots/Dashboard_2.png) | ![Transactions](expense-tracker-frontend/public/screenshots/Transactionlist_2.png) | ![Add Transaction](expense-tracker-frontend/public/screenshots/Add_transactions.png) | ![Login](expense-tracker-frontend/public/screenshots/Login.png) | ![Register](expense-tracker-frontend/public/screenshots/Register.png) | ![Landing](expense-tracker-frontend/public/screenshots/Landing_page.png) |
 ---
 
 ## 🛠 Setup & Installation
