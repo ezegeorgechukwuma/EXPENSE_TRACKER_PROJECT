@@ -101,15 +101,12 @@ Global CSS styles to avoid conflicts and support responsiveness
 Clear separation of frontend (expense-tracker-frontend) and backend (expense-tracker-backend)
 
 📷 Screenshots
-| Dashboard | Transaction List | Add Transaction | Landing Page | Login | Register|
-| --------- | ---------------- | ---------------- |
-| ![Dashboard](expense-tracker-frontend/public/screenshots/dashboard.png) |
-| ![Dashboard](expense-tracker-frontend/public/screenshots/dashboard_2.png) |
-| ![Landing Page](expense-tracker-frontend/public/screenshots/landing_page.png) |
-| ![Login](expense-tracker-frontend/public/screenshots/Login.png) |
-| ![Register](expense-tracker-frontend/public/screenshots/Register.png) |
-| ![Transaction List](expense-tracker-frontend/public/screenshots/Transactionlist_2.png) | 
-| ![Add Transaction](expense-tracker-frontend/public/screenshots/Add_transactions.png) |
+📷 Screenshots
+
+| Dashboard | Dashboard (Charts) | Landing Page | Login | Register | Transaction List | Add Transaction |
+| --------- | ----------------- | ------------ | ----- | -------- | ---------------- | --------------- |
+| ![Dashboard](public/screenshots/dashboard.png) | ![Dashboard Charts](public/screenshots/dashboard_2.png) | ![Landing Page](public/screenshots/landing_page.png) | ![Login](public/screenshots/Login.png) | ![Register](public/screenshots/Register.png) | ![Transaction List](public/screenshots/Transactionlist_2.png) | ![Add Transaction](public/screenshots/Add_transactions.png) |
+
 		
 
 (Replace links with real screenshots)
