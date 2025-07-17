@@ -42,10 +42,7 @@ This project taught me real debugging, testing APIs, and aligning backend respon
 
 | Dashboard | Charts | Transaction List | Add Transaction | Login | Register | Landing Page |
 | --------- | ----- | ---------------- | --------------- | ----- | -------- | ------------ |
-| ![Dashboard](expense-tracker-frontend/public/screenshots/dashboard.png) | ![Charts](public/screenshots/dashboard_2.png) | ![Transactions](public/screenshots/Transactionlist_2.png) | ![Add Transaction](public/screenshots/Add_transactions.png) | ![Login](public/screenshots/Login.png) | ![Register](public/screenshots/Register.png) | ![Landing](public/screenshots/landing_page.png) |
-
-Make sure your screenshots are placed under `public/screenshots/`.
-
+| ![Dashboard](expense-tracker-frontend/public/screenshots/Dashboard.png) | ![Charts](expense-tracker-frontend/public/screenshots/Dashboard_2.png) | ![Transactions](expense-tracker-frontend/public/screenshots/Transactionlist_2.png) | ![Add Transaction](expense-tracker-frontend/public/screenshots/Add_transactions.png) | ![Login](expense-tracker-frontend/public/screenshots/Login.png) | ![Register](expense-tracker-frontend/public/screenshots/Register.png) | ![Landing](expense-tracker-frontend/public/screenshots/Landing_page.png) |
 ---
 
 ## 🛠 Setup & Installation
@@ -115,17 +112,6 @@ Global CSS styles to avoid conflicts and support responsiveness
 
 Clear separation of frontend (expense-tracker-frontend) and backend (expense-tracker-backend)
 
-📷 Screenshots
-📷 Screenshots
-
-| Dashboard | Dashboard (Charts) | Landing Page | Login | Register | Transaction List | Add Transaction |
-| --------- | ----------------- | ------------ | ----- | -------- | ---------------- | --------------- |
-| ![Dashboard](public/screenshots/dashboard.png) | ![Dashboard Charts](public/screenshots/dashboard_2.png) | ![Landing Page](public/screenshots/landing_page.png) | ![Login](public/screenshots/Login.png) | ![Register](public/screenshots/Register.png) | ![Transaction List](public/screenshots/Transactionlist_2.png) | ![Add Transaction](public/screenshots/Add_transactions.png) |
-
-		
-
-(Replace links with real screenshots)
-
 📦 Folder Structure
 plaintext
 =======
@@ -191,5 +177,5 @@ Built with 💚 by George Eze
 🙏 Special thanks
 Everyone who contributed, chat gpt, claude tips and debugging help
 
-The open source community whose tools made this possible
+The open source community whose tools made this possible Mongodb ATlas
 
