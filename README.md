@@ -112,17 +112,6 @@ Global CSS styles to avoid conflicts and support responsiveness
 
 Clear separation of frontend (expense-tracker-frontend) and backend (expense-tracker-backend)
 
-📷 Screenshots
-📷 Screenshots
-
-| Dashboard | Dashboard (Charts) | Landing Page | Login | Register | Transaction List | Add Transaction |
-| --------- | ----------------- | ------------ | ----- | -------- | ---------------- | --------------- |
-| ![Dashboard](public/screenshots/dashboard.png) | ![Dashboard Charts](public/screenshots/dashboard_2.png) | ![Landing Page](public/screenshots/landing_page.png) | ![Login](public/screenshots/Login.png) | ![Register](public/screenshots/Register.png) | ![Transaction List](public/screenshots/Transactionlist_2.png) | ![Add Transaction](public/screenshots/Add_transactions.png) |
-
-		
-
-(Replace links with real screenshots)
-
 📦 Folder Structure
 plaintext
 =======
@@ -188,5 +177,5 @@ Built with 💚 by George Eze
 🙏 Special thanks
 Everyone who contributed, chat gpt, claude tips and debugging help
 
-The open source community whose tools made this possible
+The open source community whose tools made this possible Mongodb ATlas
 
