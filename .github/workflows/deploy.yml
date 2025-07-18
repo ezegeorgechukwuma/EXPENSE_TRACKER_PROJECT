@@ -35,3 +35,12 @@ jobs:
         context: ./expense-tracker-frontend
         push: true
         tags: techwithgeorge/expense_tracker_project-frontend:latest
+
+    - name: Trigger Render Deploy (Backend)
+      run: |
+        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_BACKEND }}
+
+    - name: Trigger Render Deploy (Frontend)
+      run: |
+        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}
+
