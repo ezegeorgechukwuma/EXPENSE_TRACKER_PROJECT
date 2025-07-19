@@ -13,6 +13,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Backend is running!',
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK' });
+});
+
 // Routes
 //authentication routes
 app.use('/api/auth', authRoutes);
