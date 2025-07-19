@@ -16,14 +16,18 @@ Users can add, edit, delete transactions, view category-based charts, export to 
 ✅ **Export transactions to CSV**  
 ✅ Mobile-friendly & responsive design  
 ✅ Clean landing page & protected routes
+
+✅ Mobile-friendly & responsive design
+
 ✅ Dockerized backend & frontend
+
 ✅ Auto-deployment on Render when changes are pushed to main branch on GitHub
 
 ---
 🐳 Deployment & CI/CD
 The app is fully dockerized: backend & frontend containers.
 
-Hosted on Render.
+Hosted on Render. please find the link here : https://expense-tracker-dm63.onrender.com
 
 CI/CD: pushing to the main branch in GitHub(if passed) automatically triggers a new Docker build & deploy on Render.
 
@@ -216,7 +220,7 @@ This project is for portfolio & learning purposes.
 Built with 💚 by George Eze
 
 🙏 Special thanks
-Everyone who contributed, chat gpt, claude tips and debugging help
+Everyone who contributed, chat gpt, claude, stackoverflow tips and debugging helped
 
-The open source community whose tools made this possible Mongodb ATlas
+The open source community whose tools made this possible Mongodb ATlas, Docker, Render
 
