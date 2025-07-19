@@ -1,6 +1,6 @@
 # 💸 Personal Finance Manager & Expense Tracker
 
-A full-stack web application to track income, expenses, and budgets — inspired by tools like Mint, Emma, and YNAB — built as a real-life portfolio project.
+A full-stack web application to track income, expenses, and budgets — inspired by tools like  Emma, and YNAB — built as a real-life portfolio project.
 
 Users can add, edit, delete transactions, view category-based charts, export to CSV, and manage their personal finance easily, with secure authentication.
 
@@ -16,8 +16,38 @@ Users can add, edit, delete transactions, view category-based charts, export to 
 ✅ **Export transactions to CSV**  
 ✅ Mobile-friendly & responsive design  
 ✅ Clean landing page & protected routes
+✅ Dockerized backend & frontend
+✅ Auto-deployment on Render when changes are pushed to main branch on GitHub
 
 ---
+🐳 Deployment & CI/CD
+The app is fully dockerized: backend & frontend containers.
+
+Hosted on Render.
+
+CI/CD: pushing to the main branch in GitHub(if passed) automatically triggers a new Docker build & deploy on Render.
+
+Zero-downtime deployment to keep the app always live.
+
+---
+🧭 Future Improvements
+✨ Plaid Integration (planned):
+
+Connect real bank accounts
+
+Auto-sync live transactions
+
+Reduce manual entry
+
+Other plans:
+
+Auto-detect categories
+
+Monthly/weekly summaries
+
+Push notifications
+
+CSV imports
 
 ## 📦 Tech Stack
 
@@ -33,6 +63,8 @@ Users can add, edit, delete transactions, view category-based charts, export to 
 > “Always test backend APIs before connecting frontend.”  
 > “Global CSS resets can fix unexpected layout inheritance.”  
 > “Switching tools mid-project (Tailwind → CSS) can save time if blocked.”
+> Docker & CI/CD pipelines for real-world deployment
+> Debugging API shape vs frontend expectations
 
 This project taught me real debugging, testing APIs, and aligning backend response shape with frontend logic.
 
@@ -112,6 +144,12 @@ Global CSS styles to avoid conflicts and support responsiveness
 
 Clear separation of frontend (expense-tracker-frontend) and backend (expense-tracker-backend)
 
+Backend + frontend fully dockerized
+
+Chart.js custom configs
+
+json2csv for export
+
 📦 Folder Structure
 plaintext
 =======
@@ -158,16 +196,19 @@ expense-tracker/
 │   │   ├── components/
 │   │   ├── context/
 │   │   └── api/axios.js
-│   ├── README.md
+│   ├── Dockerfile
 │   └── package.json
 ├── expense_tracker_backend/
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
 │   ├── server.js
+|   ├── Dockerfile
 │   ├── .env
 │   └── package.json
 └── README.md
+└── Future.md
+
 📃 License
 This project is for portfolio & learning purposes.
 
