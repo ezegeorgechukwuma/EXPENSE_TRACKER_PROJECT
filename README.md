@@ -123,7 +123,7 @@ Transaction List
 Shows recent transactions, allows pagination, sorting by amount/date, and edit/delete per transaction.
 
 Add Transaction
-Add income or expense, specifying category, description, amount, and date.
+Add income or expense, specifying category, description, amount, and date..
 
 Data Visualization
 
